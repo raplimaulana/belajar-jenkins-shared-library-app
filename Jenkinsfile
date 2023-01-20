@@ -18,7 +18,7 @@ pipeline{
         success{
             echo "Yey, Success"
         }
-        falure{
+        failure{
             echo "Oh no, failure"
         }
         cleanup{
