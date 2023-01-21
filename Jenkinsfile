@@ -19,11 +19,18 @@ pipeline{
         }
         stage("Test"){
             steps{
-                echo("Start Test")
-                sh("./mvnw test")
-                echo("Finish Test")
+                script{
+                    def data = [
+                        "FirstName" : "Rapli",
+                        "LastName"  : "Maulana"
+                    ]
+                    writeJSON(file: "data.json", json: data)
+                }
+                echo("Start Build")
+                echo("./mvnw test")
+                echo("Finish Build")
+                }
             }
-        }
         stage("Deploy"){
             steps{
                 echo("Hello Deploy 1")
