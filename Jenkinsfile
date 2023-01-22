@@ -8,7 +8,7 @@ pipeline{
         stage("Prepare"){
             agent{
                 node{
-                    label "linux && java"
+                    label "linux && java11"
                 }
             }
             steps{
