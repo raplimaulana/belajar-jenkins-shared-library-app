@@ -4,14 +4,14 @@ pipeline{
         AUTHOR = "Rapli Maulana Aji"
         EMAIL = "rapli.maulana@gmail.com"
     }
+    options{
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'MINUTES')
+    }
     stages{
         stage("Prepare"){
             environment{
                 APP = credentials("maulana_rahasia")                 //mengambil data pada credential dengan ID 'maulana_rahasia'. Secara otomatis username akan menjadi APP_USR dan password menjadi APP_PSW
-            }
-            options{
-                disableConcurrentBuilds()
-                timeout(time: 10, unit: 'MINUTES')
             }
             agent{
                 node{
