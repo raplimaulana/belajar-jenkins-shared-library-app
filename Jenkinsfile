@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Prepare"){
             environment{
-                APP = credentials("maulana_rahasia")                 #mengambil data pada credential dengan ID 'maulana_rahasia'. Secara otomatis username akan menjadi APP_USR dan password menjadi APP_PSW
+                APP = credentials("maulana_rahasia")                 //mengambil data pada credential dengan ID 'maulana_rahasia'. Secara otomatis username akan menjadi APP_USR dan password menjadi APP_PSW
             }
             agent{
                 node{
