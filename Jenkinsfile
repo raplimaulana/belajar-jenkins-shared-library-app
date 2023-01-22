@@ -9,6 +9,10 @@ pipeline{
             environment{
                 APP = credentials("maulana_rahasia")                 //mengambil data pada credential dengan ID 'maulana_rahasia'. Secara otomatis username akan menjadi APP_USR dan password menjadi APP_PSW
             }
+            options{
+                disableConcurrentBuilds()
+                timeout(time: 10, unit: 'MINUTES')
+            }
             agent{
                 node{
                     label "linux && java11"
