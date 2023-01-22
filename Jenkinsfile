@@ -4,6 +4,9 @@ pipeline{
         AUTHOR = "Rapli Maulana Aji"
         EMAIL = "rapli.maulana@gmail.com"
     }
+    triggers{
+        cron("*/5 * * * *")
+    }
     parameters{
         string(name: "NAME", defaultValue: "Guest", description: "What is your name?")
         text(name: "DESCRIPTION", defaultValue: "", description: "Tell me about you?")
@@ -27,7 +30,7 @@ pipeline{
                 echo("Description: ${params.DESCRIPTION}")
                 echo("Deploy: ${params.DEPLOY}")
                 echo("Social Media: ${params.SOCIAL_MEDIA}")
-                echo('Secret: ${params.SECRET}')
+                echo('Secret: $params.SECRET')
             }
         }
         stage("Prepare"){
@@ -87,6 +90,14 @@ pipeline{
                 }
             }
         stage("Deploy"){
+            input{
+                message "Can we deploy?"
+                ok "Yes, of course"
+                submitter "rapli,maulana,aji"
+                parameters{
+                    choie(name: "TARGET_ENV", choices: ["DEV","QA","PROD"], description: "We will deploy to?")
+                }
+            }
             agent{
                 node{
                     label "linux && java11"
