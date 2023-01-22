@@ -29,7 +29,8 @@ pipeline{
                     }
                 }
                 stages{
-                    stage("OS Setup ${OS} ${ARC}"){
+                    stage("OS Setup"){
+                    //stage("OS Setup ${OS} ${ARC}"){
                         agent{
                             node{
                                 label "linux && java11"
