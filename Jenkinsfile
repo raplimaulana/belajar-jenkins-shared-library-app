@@ -27,7 +27,7 @@ pipeline{
                 echo("Description: ${params.DESCRIPTION}")
                 echo("Deploy: ${params.DEPLOY}")
                 echo("Social Media: ${params.SOCIAL_MEDIA}")
-                echo("Secret: ${params.SECRET}")
+                'echo("Secret: $params.SECRET")'
             }
         }
         stage("Prepare"){
