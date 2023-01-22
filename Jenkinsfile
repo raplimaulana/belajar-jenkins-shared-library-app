@@ -95,7 +95,7 @@ pipeline{
                 ok "Yes, of course"
                 submitter "rapli,maulana,aji"
                 parameters{
-                    choie(name: "TARGET_ENV", choices: ["DEV","QA","PROD"], description: "We will deploy to?")
+                    choice(name: "TARGET_ENV", choices: ["DEV","QA","PROD"], description: "We will deploy to?")
                 }
             }
             agent{
