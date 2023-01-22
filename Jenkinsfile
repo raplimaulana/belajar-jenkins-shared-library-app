@@ -16,6 +16,20 @@ pipeline{
         timeout(time: 10, unit: 'MINUTES')
     }
     stages{
+        stage("Parameter"){
+            agent{
+                node{
+                    label "linux && java11"
+                }
+            }
+            steps{
+                echo("Hello : ${params.NAME}")
+                echo("Description: ${params.DESCRIPTION}")
+                echo("Deploy: ${params.DEPLOY}")
+                echo("Social Media: ${params.SOCIAL_MEDIA}")
+                echo("Secret: ${params.SECRET}")
+            }
+        }
         stage("Prepare"){
             environment{
                 APP = credentials("maulana_rahasia")                 //mengambil data pada credential dengan ID 'maulana_rahasia'. Secara otomatis username akan menjadi APP_USR dan password menjadi APP_PSW
