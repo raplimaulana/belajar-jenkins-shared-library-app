@@ -29,17 +29,17 @@ pipeline{
                     }
                 }
                 stages{
-                stage("OS Setup"){
-                    agent{
-                        node{
-                            label "linux && java11"
+                    stage("OS Setup ${OS} ${ARC}"){
+                        agent{
+                            node{
+                                label "linux && java11"
+                            }
                         }
-                    }
-                    steps{
-                        echo("Setup ${OS} ${ARC}")
-                    }
-                }   
-            }
+                        steps{
+                            echo("Setup ${OS} ${ARC}")
+                        }
+                    }    
+                }
             }
         }
         stage("Preparation"){
