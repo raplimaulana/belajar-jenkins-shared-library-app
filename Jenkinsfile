@@ -1,6 +1,6 @@
 @Library("belajar-jenkins-shared-library@main")_
 
-import belajar.jenkins.Output
+import belajar.jenkins.Output;
 
 pipeline{
     agent any
