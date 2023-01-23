@@ -23,7 +23,7 @@ pipeline{
             steps{
                 script{
                     echo(author.name())
-                    echo(author.channel())
+                    echo(author.address())
                 }
             }
         }
