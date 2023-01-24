@@ -35,5 +35,15 @@ pipeline{
                 }
             }
         }
+        stage("Hello Person"){
+            steps{
+                script{
+                  hello.person([
+                    firstName: "Rapli",
+                    lastName: "Maulana"
+                  ])
+                }
+            }
+        }
     }
 }
