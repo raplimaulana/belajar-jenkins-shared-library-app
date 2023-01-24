@@ -5,17 +5,13 @@ import belajar.jenkins.Output;
 pipeline{
     agent any
     stages{
-        stage("Hello Groovy"){
+        stage("Hello Person"){
             steps{
                 script{
-                    Output.hello(this, "Groovy")
-                }
-            }
-        }
-        stage("Hello World"){
-            steps{
-                script{
-                    hello.world()
+                  hello.person([
+                    firstName: "Rapli",
+                    lastName: "Maulana"
+                  ])
                 }
             }
         }
@@ -32,16 +28,6 @@ pipeline{
             steps{
                 script{
                     maven(["clean", "compile", "test"])
-                }
-            }
-        }
-        stage("Hello Person"){
-            steps{
-                script{
-                  hello.person([
-                    firstName: "Rapli",
-                    lastName: "Maulana"
-                  ])
                 }
             }
         }
