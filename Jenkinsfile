@@ -1,5 +1,8 @@
 @Library("belajar-jenkins-shared-library@main")_
 
+mavenPipeline()
+
+/*
 import belajar.jenkins.Output;
 
 pipeline{
@@ -41,3 +44,4 @@ pipeline{
         }
     }
 }
+*/
